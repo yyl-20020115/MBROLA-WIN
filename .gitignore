@@ -1,0 +1,11 @@
+# Binaries
+Bin/*
+# Eclipse settings
+.cproject
+.project
+.settings/*
+# Temporary files
+*.swp
+
+/.vs/Mbrola/v16
+/Debug

@@ -9,3 +9,6 @@ Bin/*
 
 /.vs/Mbrola/v16
 /Debug
+/x64/Debug
+/Release
+/x64/Release

@@ -180,17 +180,17 @@ void parse_init_file(char* rename_file_name)
 /* Parse a file mapping phonemes onto other with ;;RENAME a A ... */
 {
 	FILE* rename_file= fopen(rename_file_name,OPENRT);
-	char buffer[255];
-	char source[255];
-	char dest[255];
+	char buffer[255] = { 0 };
+	char source[255] = { 0 };
+	char dest[255] = { 0 };
   
 	if (rename_file==NULL)
 		fatal_message(ERROR_DBNOTFOUND,"Error with %s renaming file !\n",rename_file_name);
   
 	/* Read a line with quite a loose syntax ... */
-	while (fgets(buffer,sizeof(buffer),rename_file))
+	while (fgets(buffer,sizeof(buffer),rename_file)!=0)
     {
-		char* pos;  /* position of the command start, ignoring whatever preceedes */
+		char* pos = 0;  /* position of the command start, ignoring whatever preceedes */
 		
 		debug_message2("LINE: %s\n",buffer);
 		
@@ -256,10 +256,10 @@ void process_one_file(Mbrola* mb, char *file_name)
  * Send one file on the output
  */
 {
-	FILE *command_file; /* File providing the phonetic input (can be stdin) */ 
-	int stream_eof;	/* To make the difference between flush and eof */
-	Input* my_input; /* to build the new parser */
-	Parser* my_parse;
+	FILE *command_file = 0; /* File providing the phonetic input (can be stdin) */ 
+	int stream_eof = 0;	/* To make the difference between flush and eof */
+	Input* my_input = 0; /* to build the new parser */
+	Parser* my_parse = 0;
 
 	/* A - as input file means STDIN */
 	if (!strcmp(file_name,PIPESYMB))
@@ -289,7 +289,10 @@ void process_one_file(Mbrola* mb, char *file_name)
   
 	my_parse->close_Parser(my_parse);	/* close the parser     */
 	my_input->close_Input(my_input);  /* and the input stream */
-	if (command_file!=stdin) fclose(command_file);
+	if (command_file != stdin)
+	{
+		fclose(command_file);
+	}
 }
 
 
@@ -298,9 +301,9 @@ void process_one_file(Mbrola* mb, char *file_name)
  */
 int main(int argc, char **argv)
 {
-	WaveType file_format;	     /* File format for the audio output */
-	int argpos;
-	int c;
+	WaveType file_format = RAW_FORMAT;	     /* File format for the audio output */
+	int argpos = 0;
+	int c = 0;
 	bool info=False;           /* True if textual information requested */
 
 #ifdef ROMDATABASE_STORE
@@ -327,7 +330,8 @@ int main(int argc, char **argv)
 	/* Paranoid test ! */
 	if ((sizeof(uint8)!=1)
 		|| (sizeof(int16)!=2)
-		|| ( sizeof(int32)!=4))
+		|| (sizeof(int32)!=4)
+		)
 		fatal_message(ERROR_DBWRONGARCHITECTURE,"Architecture PANIC!\n");
 
 	if (argc==1)
@@ -465,9 +469,9 @@ int main(int argc, char **argv)
 #ifdef ROMDATABASE_INIT
 	if (romdatabase_init)
     {
-		long rom_size;
-		FILE* rom_file;
-		char out_name[1024];
+		long rom_size = 0;
+		FILE* rom_file = 0;
+		char out_name[1024] = { 0 };
 		sprintf( out_name, "%s.rom", argv[argpos] );
       
 		/* Open the ROM image for simulation */
@@ -511,7 +515,7 @@ int main(int argc, char **argv)
 #ifdef ROMDATABASE_STORE
 	if (romdatabase_store)
     {
-		char out_name[1024];
+		char out_name[1024] = { 0 };
 		sprintf( out_name, "%s.rom", dbaname(my_dba) );
       
 		/* Dump a copy of the database into a file to get a ROM image */

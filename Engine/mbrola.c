@@ -122,10 +122,11 @@ Mbrola* init_Mbrola(Database* dba)
  * variables. Connect the phonemic command stream later with set_parser_Mbrola
  */
 {
-	Mbrola* mb;
+	Mbrola* mb = 0;
 	debug_message1("init_Mbrola\n");
 
 	mb= (Mbrola*) MBR_malloc(sizeof(Mbrola));
+	memset(mb, 0, sizeof(Mbrola));
 	diph_dba(mb) =dba;
 
 	/* Allocate buffers */
@@ -251,7 +252,7 @@ StatePhone NextDiphone(Mbrola* mb)
 	Phone* my_phone;
 	StatePhone state;
   
-	DiphoneSynthesis *temp;
+	DiphoneSynthesis *temp = 0;
   
 	debug_message1("NextDiphone\n");
   
@@ -1016,7 +1017,7 @@ StatePhone Synthesis(Mbrola* mb)
  * (a flush request, a end of file, end of phone sequence)
  */
 {
-	StatePhone stream_state;	/* Indicate a # or eof has been encountered in the   */
+	StatePhone stream_state = PHO_OK;	/* Indicate a # or eof has been encountered in the   */
 	/* command file -> flush and continue         */
 
 	debug_message1("Synthesis\n");

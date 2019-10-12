@@ -35,16 +35,22 @@ DiphoneSynthesis* init_DiphoneSynthesis(int mbr_period, int max_pm, int max_samp
 	DiphoneSynthesis* self;
   
 	self= (DiphoneSynthesis *) MBR_malloc(sizeof(DiphoneSynthesis));
-  
+	memset(self, 0, sizeof(DiphoneSynthesis));
 	LeftPhone(self)=NULL;			  
 	RightPhone(self)=NULL;
   
 	smoothw(self)= (int16*) MBR_malloc(sizeof(int16) * 2*mbr_period);
+	memset(self->smoothw, 0, sizeof(int16) * 2 * mbr_period);
 	real_frame(self)= (uint8*) MBR_malloc(sizeof(uint8) * max_pm);
-  
+	memset(self->real_frame, 0, sizeof(uint8) * max_pm);
+
 	/* For ROM RAW databases, no need to alloc a buffer  */
 	if (max_samples)
-		buffer(self)= (int16*) MBR_malloc(sizeof(int16) * max_samples);
+	{
+		buffer(self) = (int16*)MBR_malloc(sizeof(int16) * max_samples);
+		memset(self->buffer, 0, sizeof(int16) * max_samples);
+
+	}
 	buffer_alloced(self)= (max_samples!=0);
   
 	return(self);

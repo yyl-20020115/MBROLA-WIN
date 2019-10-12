@@ -170,7 +170,7 @@ bool ReadDatabaseHeader(Database* dba)
 	dba->database = (void*) database;
   
 	/* Sanity check -> big endian waiting on the corner */
-	i= fread(&Magic(dba),1,6,database); /* Reads "MBROLA" */
+	i= fread(&Magic(dba),sizeof(char),6,database); /* Reads "MBROLA" */
 	if (i==0)  
     {
 		fatal_message(ERROR_DBWRONGVERSION,

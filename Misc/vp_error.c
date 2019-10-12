@@ -38,9 +38,11 @@
 #include "common.h"
 #include "vp_error.h"
 
+#define OUTPUT_HANDLE stdout
+
 /* buffer cumulating error messages when in lib or dll mode */
-char errbuffer[300];	
-int lasterr_code;				  /* Code of the last error */
+char errbuffer[300] = { 0 };
+int lasterr_code = 0;				  /* Code of the last error */
 
 void fatal_message(const int code, const char *format, /* args */ ...)
 /*
@@ -57,7 +59,7 @@ void fatal_message(const int code, const char *format, /* args */ ...)
 	vsprintf(errbuffer, format, ap);
 	va_end(ap);
 #else
-	vfprintf(stderr, format, ap);
+	vfprintf(OUTPUT_HANDLE, format, ap);
 	va_end(ap);
 	exit(code); /* in standalone mode... brutal */
 #endif
@@ -78,7 +80,7 @@ void warning_message(const int code, const char *format, /* args */ ...)
 	vsprintf(errbuffer, format, ap);
 	va_end(ap);
 #else
-	vfprintf(stderr, format, ap);
+	vfprintf(OUTPUT_HANDLE, format, ap);
 	va_end(ap);
 #endif 
 }
@@ -97,9 +99,9 @@ void debug_message(char const *format, /* args */ ...)
 	va_list ap;
   
 	va_start(ap,format);
-	vfprintf(stderr, format, ap);
+	vfprintf(OUTPUT_HANDLE, format, ap);
 	va_end(ap);
-	fflush(stderr); /* critical if the program crashes */
+	fflush(OUTPUT_HANDLE); /* critical if the program crashes */
 }
 
 #endif

@@ -33,7 +33,7 @@
 
 static long readline_InputFile(Input* in, char *line, int size)
 {
-	return( (long) fgets(line, size, (FILE*)in->self));
+	return(fgets(line, size, (FILE*)in->self)!=0);
 }
 
 static void reset_InputFile(Input* in)

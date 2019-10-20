@@ -24,15 +24,6 @@
     <ClCompile Include="Database\hash_tab.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Database\little_big.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Database\rom_database.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Database\rom_handling.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Database\zstring_list.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -48,19 +39,10 @@
     <ClCompile Include="Misc\common.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Misc\g711.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Misc\mbralloc.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Misc\vp_error.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Parser\fifo.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Parser\input_fifo.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Parser\input_file.c">
@@ -79,6 +61,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Database\database_old.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\little_big.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,5 +158,10 @@
     <ClInclude Include="Standalone\Posix\getopt.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="out.pho">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

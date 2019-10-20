@@ -351,7 +351,7 @@ StatePhone NextDiphone(Mbrola* mb)
 				   name_Phone(my_phone));
 	return(PHO_OK);
 }
-
+//Prosody:韵律; 韵律学; 重音和语调模式; 韵律结构;
 bool MatchProsody(Mbrola* mb)
 /*
  * Selects Duplication or Elimination for each analysis OLA frames of

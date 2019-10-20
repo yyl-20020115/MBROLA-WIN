@@ -506,6 +506,7 @@ Database* init_Database(char* dbaname)
 	debug_message1("init_Database\n");
   
 	mydba= (Database*) MBR_malloc(sizeof(Database));
+	memset(mydba, 0, sizeof(Database));
   
 	/* First initialize the name, and give 0 values for error handling and 
 	 * premature exit 

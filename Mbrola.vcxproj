@@ -160,18 +160,13 @@
     <ClCompile Include="Database\diphone_info.c" />
     <ClCompile Include="Database\hash_tab.c" />
     <ClCompile Include="Database\little_big.c" />
-    <ClCompile Include="Database\rom_database.c" />
-    <ClCompile Include="Database\rom_handling.c" />
     <ClCompile Include="Database\zstring_list.c" />
     <ClCompile Include="Engine\diphone.c" />
     <ClCompile Include="Engine\mbrola.c" />
     <ClCompile Include="Misc\audio.c" />
     <ClCompile Include="Misc\common.c" />
-    <ClCompile Include="Misc\g711.c" />
     <ClCompile Include="Misc\mbralloc.c" />
     <ClCompile Include="Misc\vp_error.c" />
-    <ClCompile Include="Parser\fifo.c" />
-    <ClCompile Include="Parser\input_fifo.c" />
     <ClCompile Include="Parser\input_file.c" />
     <ClCompile Include="Parser\parser_input.c" />
     <ClCompile Include="Parser\phonbuff.c" />
@@ -209,6 +204,9 @@
     <ClInclude Include="Parser\phone_export.h" />
     <ClInclude Include="Standalone\Posix\getopt.h" />
     <ClInclude Include="Standalone\synth.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="out.pho" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

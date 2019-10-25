@@ -328,11 +328,11 @@ int main(int argc, char **argv)
 #endif
 
 	/* Paranoid test ! */
-	if ((sizeof(uint8)!=1)
+	/*if ((sizeof(uint8)!=1)
 		|| (sizeof(int16)!=2)
 		|| (sizeof(int32)!=4)
 		)
-		fatal_message(ERROR_DBWRONGARCHITECTURE,"Architecture PANIC!\n");
+		fatal_message(ERROR_DBWRONGARCHITECTURE,"Architecture PANIC!\n");*/
 
 	if (argc==1)
     {

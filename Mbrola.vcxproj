@@ -208,6 +208,9 @@
   <ItemGroup>
     <None Include="out.pho" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="msg.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

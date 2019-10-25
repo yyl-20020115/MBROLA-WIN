@@ -123,7 +123,7 @@ void init_CommentSymbol(PhoneBuff *pt, char *comment);
  * Build a new sscanf target to spot the comment symbol
  */
 
-void init_SilenceSymbol(PhoneBuff *pt, char *silence);
+//void init_SilenceSymbol(PhoneBuff *pt, char *silence);
 /* 
  * Build a new sscanf target to spot the comment symbol
  */
